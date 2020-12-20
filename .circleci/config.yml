@@ -39,6 +39,7 @@ jobs:
         executor: setup_python
         steps:
             - checkout
+            - basic_setup
             - lint_code
             - test_code
 
