@@ -1,3 +1,6 @@
+import argparse
+
+
 def runFromFile(inputFile):
     """Runs findLongestLength on each line in input file,
     returning an array of arrays as solution.
@@ -46,3 +49,16 @@ def findLongestLength(inputArray):
     if len(tempArray) > len(maxLengthArray):
         maxLengthArray = tempArray
     return maxLengthArray
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--a",
+                        nargs="*",
+                        type=int,
+                        help='input integer array seperated by whitespace',
+                        default=False
+                        )
+    args = parser.parse_args()
+    print("This was the input array:", args.a)
+    print(findLongestLength(args.a))
