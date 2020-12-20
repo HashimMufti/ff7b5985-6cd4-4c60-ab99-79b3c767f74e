@@ -57,8 +57,15 @@ if __name__ == '__main__':
                         nargs="*",
                         type=int,
                         help='input integer array seperated by whitespace',
+                        dest='a',
                         default=False
                         )
+    parser.add_argument('-t', action='store_true', default=False,
+                        dest='t',
+                        help='Show input/output text')
     args = parser.parse_args()
-    print("This was the input array:", args.a)
-    print(findLongestLength(args.a))
+    if args.t:
+        print("Input:", args.a)
+        print("Output:", findLongestLength(args.a))
+    else:
+        print(findLongestLength(args.a))
