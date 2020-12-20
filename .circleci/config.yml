@@ -24,7 +24,7 @@ commands:
                 name: "Code Linting"
                 command: |
                     sudo pip install pylama
-                    sudo pip install flake8 pytest pytest-cov
+                    sudo pip install flake8
                     pylama
                     flake8 --statistics
     test_code:
