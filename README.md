@@ -7,7 +7,7 @@ This solution uses: Python3, Docker and CircleCI.
 
 1. Fork my repository.
 2. Ensure that you have Python3 setup (with [pip](https://pip.pypa.io/en/stable/) on your Path).
-3. Run the following command:
+3. Run the following command in the project's root directory:
 
 ```bash
 pip install -r requirements.txt 
@@ -29,6 +29,7 @@ docker-compose up
 docker ps   # Use this to find your container id
 docker exec -it <INSERT_CONTAINER_ID>  /bin/bash
 ```
+You should now be inside the Docker container, allowing you to run the code without having to modify your local machine environment.
 
 ## Usage
 From the project root directory, run the following command to open the help menu:
