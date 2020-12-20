@@ -115,3 +115,9 @@ def test_run_from_file():
     inputFile = "testFiles/runFromFileTest.txt"
     inputArray = [['12', '22', '99'], ['-3', '5', '7', '8']]
     assert inputArray == runFromFile(inputFile)
+
+
+def test_single_integer():
+    """Tests findLongestLength against a single integer input.
+    """
+    assert [1] == findLongestLength([1])
