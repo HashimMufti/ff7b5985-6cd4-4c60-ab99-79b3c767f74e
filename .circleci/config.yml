@@ -1,0 +1,52 @@
+version: 2.1
+description: "Pipeline for Kmart Coding Challenge"
+
+executors:
+    setup_python:
+        working_directory: ~/circleci-python
+        docker:
+            - image: circleci/python:3.8.2
+
+commands:
+    basic_setup:
+        steps:
+            - run:
+                name: "Basic Setup"
+                command: |
+                    sudo pip install --upgrade pip
+                    sudo pip install pipreqs
+                    sudo pipreqs --force
+                    sudo pip install -r requirements.txt 
+            
+    lint_code:
+        steps:
+            - run:
+                name: "Code Linting"
+                command: |
+                    sudo pip install pylama
+                    sudo pip install flake8 pytest pytest-cov
+                    pylama
+                    flake8 --statistics
+    test_code:
+        steps:
+            - run:
+                name: "Test Code"
+                command: |
+                    sudo pip install pytest
+                    pytest
+    
+                    
+jobs:
+    python_main:
+        executor: setup_python
+        steps:
+            - checkout
+            - basic_setup
+            - lint_code
+            - test_code
+
+workflows:
+    version: 2
+    python_build:
+        jobs:
+            - python_main
