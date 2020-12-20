@@ -1,5 +1,9 @@
 version: 2.1
+
 description: "Pipeline for Kmart Coding Challenge"
+
+orbs:
+  sonarqube: clicklogiq/sonarqube@0.0.2
 
 executors:
     setup_python:
