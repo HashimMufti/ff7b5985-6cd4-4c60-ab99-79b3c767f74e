@@ -10,7 +10,7 @@ This solution uses: Python3, Docker and CircleCI.
 3. Run the following command:
 
 ```bash
-pip install requirements
+pip install -r requirements.txt 
 ```
 
 ## Installation - Docker
