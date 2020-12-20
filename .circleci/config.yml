@@ -29,7 +29,7 @@ jobs:
     python_main:
         executor: setup_python
         steps:
-            #- checkout
+            - checkout
             - lint_code
             - test_code
 
