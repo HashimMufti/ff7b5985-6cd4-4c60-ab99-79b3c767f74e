@@ -1,9 +1,5 @@
 version: 2.1
-
 description: "Pipeline for Kmart Coding Challenge"
-
-orbs:
-  sonarqube: clicklogiq/sonarqube@0.0.2
 
 executors:
     setup_python:
@@ -17,23 +13,25 @@ commands:
             - run:
                 name: "Basic Setup"
                 command: |
-                    pip install pipreqs
-                    pipreqs --force
-                    pip install -r requirements.txt 
+                    sudo pip install --upgrade pip
+                    sudo pip install pipreqs
+                    sudo pipreqs --force
+                    sudo pip install -r requirements.txt 
             
     lint_code:
         steps:
             - run:
                 name: "Code Linting"
                 command: |
-                    pip install flake8 pytest pytest-cov
+                    sudo pip install pylama
+                    sudo pip install flake8 pytest pytest-cov
+                    pylama
                     flake8 --statistics
     test_code:
         steps:
             - run:
                 name: "Test Code"
                 command: |
-                    pip install --upgrade pip
                     sudo pip install pytest
                     pytest
     
