@@ -8,6 +8,15 @@ executors:
             - image: circleci/python:3.8.2
 
 commands:
+    basic_setup:
+        steps:
+            - run:
+                name: "Basic Setup"
+                command: |
+                    pip install pipreqs
+                    pipreqs --force
+                    pip install -r requirements.txt 
+            
     lint_code:
         steps:
             - run:
