@@ -1,9 +1,10 @@
 def runFromFile(inputFile):
     with open(inputFile, "r") as iFile:
+        solutionArray = []
         for iLine in iFile:
             numberArray = iLine.rstrip().split(' ')
-            findLongestLength(numberArray)
-    return True
+            solutionArray.append(findLongestLength(numberArray))
+    return solutionArray
 
 
 def findLongestLength(inputArray):
