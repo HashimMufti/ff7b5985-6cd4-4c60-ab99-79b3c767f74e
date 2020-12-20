@@ -5,6 +5,7 @@ def runFromFile(inputFile):
             findLongestLength(numberArray)
     return True
 
+
 def findLongestLength(inputArray):
     maxLengthArray = []
     tempArray = []
@@ -25,4 +26,3 @@ def findLongestLength(inputArray):
     if len(tempArray) > len(maxLengthArray):
         maxLengthArray = tempArray
     return maxLengthArray
-    
